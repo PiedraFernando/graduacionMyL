@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 420" fill="none" stroke="#b8860b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- === HOMBRE === -->
+  <!-- Birrete -->
+  <path d="M110 65 L170 65 L140 48 Z" />
+  <path d="M140 65 L140 85" />
+  <circle cx="140" cy="88" r="2.5" />
+
+  <!-- Cabeza -->
+  <ellipse cx="140" cy="105" rx="28" ry="34" />
+  <!-- Cabello -->
+  <path d="M112 95 Q140 68 168 95" />
+  <!-- Cuello -->
+  <path d="M128 135 L128 150" />
+  <path d="M152 135 L152 150" />
+
+  <!-- Esmoquin -->
+  <!-- Hombros -->
+  <path d="M85 158 Q112 148 128 150" />
+  <path d="M195 158 Q168 148 152 150" />
+  <!-- Solapa izquierda -->
+  <path d="M85 158 L128 210 L128 360" />
+  <!-- Solapa derecha -->
+  <path d="M195 158 L152 210 L152 360" />
+  <!-- Borde exterior chaqueta -->
+  <path d="M85 158 L80 360" />
+  <path d="M195 158 L200 360" />
+  <!-- Camisa -->
+  <path d="M128 150 L140 205 L152 150" />
+  <!-- Corbata de moño -->
+  <path d="M132 170 H148" />
+  <path d="M132 170 L128 176 L132 182" />
+  <path d="M148 170 L152 176 L148 182" />
+  <!-- Botones -->
+  <circle cx="140" cy="215" r="2" />
+  <circle cx="140" cy="238" r="2" />
+  <circle cx="140" cy="261" r="2" />
+  <!-- Pantalones -->
+  <path d="M118 360 L118 390" />
+  <path d="M162 360 L162 390" />
+  <!-- Zapatos -->
+  <path d="M108 390 Q118 400 128 390" />
+  <path d="M152 390 Q162 400 172 390" />
+
+  <!-- === MUJER === -->
+  <!-- Birrete -->
+  <path d="M310 65 L370 65 L340 48 Z" />
+  <path d="M340 65 L340 85" />
+  <circle cx="340" cy="88" r="2.5" />
+
+  <!-- Cabeza -->
+  <ellipse cx="340" cy="105" rx="28" ry="34" />
+  <!-- Cabello recogido -->
+  <path d="M312 95 Q340 68 368 95" />
+  <path d="M312 100 Q305 115 312 130" />
+  <path d="M368 100 Q375 115 368 130" />
+  <!-- Cuello -->
+  <path d="M328 135 L328 150" />
+  <path d="M352 135 L352 150" />
+
+  <!-- Vestido -->
+  <!-- Tirantes/escote -->
+  <path d="M300 165 Q340 185 380 165" />
+  <!-- Brazos -->
+  <path d="M300 165 L282 185" />
+  <path d="M380 165 L398 185" />
+  <!-- Cintura -->
+  <path d="M310 250 Q340 245 370 250" />
+  <!-- Falda -->
+  <path d="M310 250 L260 390" />
+  <path d="M370 250 L420 390" />
+  <path d="M260 390 L420 390" />
+  <!-- Pliegues -->
+  <path d="M328 250 L315 390" />
+  <path d="M352 250 L365 390" />
+  <!-- Zapatos -->
+  <path d="M308 390 Q318 400 328 390" />
+  <path d="M352 390 Q362 400 372 390" />
+
+  <!-- Detalles decorativos -->
+  <path d="M240 60 V360" stroke-dasharray="6 6" opacity="0.4" />
+</svg>

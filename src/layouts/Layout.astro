@@ -1,0 +1,79 @@
+---
+// Este es el diseño base que incluye los componentes principales
+import Home from '../components/home.astro';
+import Frase from '../components/frase.astro';
+import Fathers from '../components/fathers.astro';
+import DateCounter from '../components/dateCounter.astro';
+import '../styles/global.css';
+import Ubication from '../components/ubication.astro';
+import DressCode from '../components/dressCode.astro';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graduación Melanie y Deisy</title>
+    <link rel="icon" type="image/svg+xml" href="/graduate.svg" />
+  </head>
+
+  <body class="">
+    <!-- Modal de bienvenida -->
+    <div id="welcomeModal" class="fixed inset-0 flex items-center justify-center z-50">
+      <div class="relative w-full max-w-4xl mx-4 rounded-lg border border-[#c9a227] bg-black/40 backdrop-blur-sm shadow-2xl py-20 px-12 flex flex-col items-center justify-center min-h-[600px]">
+        <!-- Contenido -->
+        <h1 class="text-[60px] md:text-[110px] text-secondary alex-brush-regular mb-[-20px]">Melanie</h1>
+        <h1 class="text-[44px] md:text-[40px] monsieur-la-doulaise-regular">y</h1>
+        <h1 class="text-[60px] md:text-[110px] text-secondary alex-brush-regular mb-6">Deisy</h1>
+        <p class="text-[18px] md:text-[26px] text-gold tracking-[0.3em] uppercase mb-8">Dominguez</p>
+
+        <!-- Botón ver invitación -->
+        <button id="viewInvitation" class="bg-[#141414] text-[#e3c773] border border-[#c9a227] px-10 py-4 rounded-lg text-[20px] hover:bg-[#000] transition-colors duration-300">
+          Ver invitación
+        </button>
+      </div>
+    </div>
+      <style>
+        #welcomeModal.fade-out {
+          transition: opacity 0.7s ease;
+          opacity: 0;
+        }
+      </style>
+
+    <!-- Audio -->
+    <audio id="backgroundMusic" loop>
+      <source src="/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <main>
+      <Home />
+      <Frase />
+      <Fathers />
+      <div>
+        <DateCounter />
+        <Ubication />
+        <DressCode />
+      </div>
+    </main>
+
+    <script>
+        const modal = document.getElementById('welcomeModal');
+        const viewInvitationBtn = document.getElementById('viewInvitation');
+        const music = document.getElementById('backgroundMusic');
+
+        function closeModalAndPlayMusic() {
+          if (modal) {
+            modal.classList.add('fade-out');
+            setTimeout(() => {
+              modal.classList.add('hidden');
+            }, 700);
+          }
+          if (music) {
+            music.play().catch(err => console.log('Error al reproducir música:', err));
+          }
+        }
+
+        viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
+    </script>
+  </body>
+</html>

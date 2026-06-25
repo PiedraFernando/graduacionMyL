@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Monsieur+La+Doulaise&family=Mr+De+Haviland&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-baskervville: 'Montserrat';
+  --gold: #b8860b;
+  --gold-soft: #ecd9a0;
+  --dark: #141414;
+  --dark-soft: #2a2a2a;
+  --cream: #faf3e0;
+}
+
+body{
+  font-family: "Cormorant", serif;
+  color: var(--gold-soft);
+  background-color: #0d0d0d;
+  background-image:
+    radial-gradient(1px 1px at 20% 25%, #e3c773, transparent 60%),
+    radial-gradient(1px 1px at 75% 60%, #c9a227, transparent 60%),
+    radial-gradient(1px 1px at 45% 80%, #e3c773, transparent 60%),
+    radial-gradient(1px 1px at 85% 15%, #c9a227, transparent 60%),
+    radial-gradient(1.5px 1.5px at 30% 50%, #e3c773, transparent 60%),
+    radial-gradient(1px 1px at 60% 35%, #c9a227, transparent 60%),
+    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(201, 162, 39, 0.12), transparent 70%);
+  background-size: 320px 320px, 320px 320px, 320px 320px, 320px 320px, 320px 320px, 320px 320px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Clase dinámica para Cormorant */
+.cormorant {
+  font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--cormorant-weight, 400);
+  font-style: normal;
+}
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Clase dinámica para Bodoni Moda */
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--bodoni-weight, 400);
+  font-style: normal;
+}
+
+.mr-de-haviland-regular {
+  font-family: "Mr De Haviland", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-primary {
+  color: var(--gold-soft);
+}
+.text-secondary {
+  color: var(--gold);
+}
+.text-gold {
+  color: var(--gold);
+}
+.bg-dark {
+  background-color: var(--dark);
+}
+.bg-gold {
+  background-color: var(--gold);
+}
+
+/* Animación sutil de temblor para títulos */
+@keyframes subtle-shake {
+  0%, 90%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  92% {
+    transform: translateX(-1px) rotate(-0.3deg);
+  }
+  94% {
+    transform: translateX(1px) rotate(0.3deg);
+  }
+  96% {
+    transform: translateX(-0.5px) rotate(-0.2deg);
+  }
+  98% {
+    transform: translateX(0.5px) rotate(0.2deg);
+  }
+}
+
+h1 {
+  animation: subtle-shake 3s ease-in-out infinite;
+}
