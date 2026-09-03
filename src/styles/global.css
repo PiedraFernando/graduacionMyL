@@ -63,16 +63,16 @@ body{
 }
 
 .text-primary {
-  color: var(--lila-amable);
+  color: #000000;
 }
 .text-secondary {
-  color: var(--morado-pastel);
+  color: #000000;
 }
 .text-gold {
-  color: var(--lila-amable);
+  color: #000000;
 }
 .text-dark {
-  color: var(--texto-oscuro);
+  color: #000000;
 }
 .bg-dark {
   background-color: var(--rosa-palo);
