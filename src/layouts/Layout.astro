@@ -19,6 +19,11 @@ import DressCode from '../components/dressCode.astro';
     <meta property="og:title" content="Graduación Melanie y Daisy" />
     <meta property="og:description" content="Acompáñanos a celebrar este gran logro. 13 de diciembre de 2026, 2:45 p.m., Salón Cipreses, Puebla." />
     <link rel="icon" type="image/svg+xml" href="/graduate.svg" />
+    <script is:inline>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-reveal");
+      }
+    </script>
   </head>
 
   <body class="">
@@ -40,7 +45,7 @@ import DressCode from '../components/dressCode.astro';
 
     <!-- Control de música -->
     <button id="musicToggle" type="button" aria-pressed="false" aria-label="Silenciar música"
-      class="btn-primary hidden fixed top-4 right-4 z-40 w-12 h-12 rounded-full p-0 shadow-lg">
+      class="btn-primary hidden fixed bottom-4 right-4 z-40 w-12 h-12 rounded-full p-0 shadow-lg">
       <svg id="iconOn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M11 5 6 9H3v6h3l5 4z" />
         <path d="M15.5 8.5a5 5 0 0 1 0 7" />
@@ -108,6 +113,21 @@ import DressCode from '../components/dressCode.astro';
         });
 
         viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
+
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          revealEls.forEach((el) => io.observe(el));
+        } else {
+          revealEls.forEach((el) => el.classList.add('is-in'));
+        }
     </script>
   </body>
 </html>

@@ -172,3 +172,61 @@ a:focus-visible {
     animation: subtle-shake 3s ease-in-out infinite;
   }
 }
+
+/* Medallón para los íconos de las graduadas */
+.icon-medallion {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border-radius: 9999px;
+  background: rgba(255, 250, 250, 0.7);
+  border: 1px solid rgba(90, 58, 92, 0.25);
+  box-shadow: 0 10px 28px rgba(90, 58, 92, 0.16);
+}
+.icon-medallion img {
+  width: 68%;
+  height: 68%;
+}
+@media (min-width: 768px) {
+  .icon-medallion {
+    width: 168px;
+    height: 168px;
+  }
+}
+
+/* Separador ornamental */
+.ornament {
+  position: relative;
+  width: min(220px, 60%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--morado-profundo), transparent);
+}
+.ornament::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--morado-profundo);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Superficies del navegador */
+::selection {
+  background: var(--morado-pastel);
+  color: #2a1a2c;
+}
+html {
+  scrollbar-color: var(--lila-amable) transparent;
+}
+
+/* Entrada de secciones al hacer scroll (solo con JS y sin movimiento reducido) */
+.reveal {
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.js-reveal .reveal:not(.is-in) {
+  opacity: 0;
+  transform: translateY(24px);
+}
