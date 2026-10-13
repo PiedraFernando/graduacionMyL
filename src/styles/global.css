@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Monsieur+La+Doulaise&family=Mr+De+Haviland&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --font-baskervville: 'Montserrat';
   --rosa-claro: #FFFAFA;
   --rosa-pastel: #FFEDF0;
   --rosa-palo: #FFDBE5;
@@ -10,11 +9,13 @@
   --morado-pastel: #DCD0FF;
   --lila-amable: #C8A2C8;
   --texto-oscuro: #8B6F8B;
+  --morado-profundo: #5A3A5C;
+  --morado-profundo-hover: #744A76;
 }
 
 body{
   font-family: "Cormorant", serif;
-  color: var(--lila-amable);
+  color: #000000;
   background-color: #F7E6EE;
   background-image:
     radial-gradient(2.5px 2.5px at 20% 25%, rgba(200, 162, 200, 0.5), transparent 60%),
@@ -42,23 +43,11 @@ body{
   font-weight: var(--cormorant-weight, 400);
   font-style: normal;
 }
-.monsieur-la-doulaise-regular {
-  font-family: "Monsieur La Doulaise", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* Clase dinámica para Bodoni Moda */
 .bodoni-moda {
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
-  font-weight: var(--bodoni-weight, 400);
-  font-style: normal;
-}
-
-.mr-de-haviland-regular {
-  font-family: "Mr De Haviland", cursive;
-  font-weight: 400;
+  font-weight: var(--bodoni-weight, 600);
   font-style: normal;
 }
 
@@ -69,7 +58,7 @@ body{
   color: #000000;
 }
 .text-gold {
-  color: #000000;
+  color: var(--morado-profundo);
 }
 .text-dark {
   color: #000000;
@@ -86,23 +75,41 @@ body{
 .border-secondary {
   border-color: var(--morado-pastel);
 }
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 .btn-primary {
-  background-color: var(--rosa-pastel);
-  color: var(--lila-amable);
-  border: 1px solid var(--lila-amable);
-  transition: all 0.3s ease;
+  background-color: var(--morado-profundo);
+  color: var(--rosa-claro);
+  border: 1px solid var(--morado-profundo);
 }
 .btn-primary:hover {
-  background-color: var(--rosa-palo);
+  background-color: var(--morado-profundo-hover);
 }
 .btn-secondary {
-  background-color: var(--lavanda-claro);
-  color: var(--lila-amable);
-  border: 1px solid var(--lila-amable);
-  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--morado-profundo);
+  border: 2px solid var(--morado-profundo);
 }
 .btn-secondary:hover {
   background-color: var(--morado-pastel);
+}
+.btn-primary.hidden,
+.btn-secondary.hidden {
+  display: none;
+}
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--morado-profundo);
+  outline-offset: 3px;
 }
 
 /* Tarjetas de sección */
@@ -160,6 +167,8 @@ body{
   }
 }
 
-h1 {
-  animation: subtle-shake 3s ease-in-out infinite;
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: subtle-shake 3s ease-in-out infinite;
+  }
 }

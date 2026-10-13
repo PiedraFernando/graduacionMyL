@@ -14,18 +14,22 @@ import DressCode from '../components/dressCode.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graduación Melanie y Daisy</title>
+    <meta name="description" content="Te invitamos a la graduación de Melanie Diane y Daisy Lucero Domínguez Mendez. 13 de diciembre de 2026, 2:45 p.m., Salón Cipreses, Puebla." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Graduación Melanie y Daisy" />
+    <meta property="og:description" content="Acompáñanos a celebrar este gran logro. 13 de diciembre de 2026, 2:45 p.m., Salón Cipreses, Puebla." />
     <link rel="icon" type="image/svg+xml" href="/graduate.svg" />
   </head>
 
   <body class="">
     <!-- Modal de bienvenida -->
-    <div id="welcomeModal" class="fixed inset-0 flex items-center justify-center z-50">
-      <div class="modal-card relative w-full max-w-4xl mx-4 rounded-lg border backdrop-blur-sm shadow-2xl py-20 px-12 flex flex-col items-center justify-center min-h-[600px]">
+    <div id="welcomeModal" role="dialog" aria-modal="true" aria-label="Bienvenida a la invitación" class="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto">
+      <div class="modal-card relative w-full max-w-4xl mx-4 rounded-lg border backdrop-blur-sm shadow-2xl py-16 md:py-20 px-6 md:px-12 flex flex-col items-center justify-center min-h-[600px] text-center">
         <!-- Contenido -->
-        <h1 class="text-[60px] md:text-[110px] text-secondary alex-brush-regular mb-[-20px]">Melanie Diane</h1>
-        <h1 class="text-[44px] md:text-[40px] monsieur-la-doulaise-regular">y</h1>
-        <h1 class="text-[60px] md:text-[110px] text-secondary alex-brush-regular mb-6">Daisy Lucero</h1>
-        <p class="text-[18px] md:text-[26px] text-gold tracking-[0.3em] uppercase mb-8">Domínguez Mendez</p>
+        <p class="text-[clamp(2.5rem,12vw,6.9rem)] leading-[1.05] text-secondary alex-brush-regular">Melanie Diane</p>
+        <p class="text-[40px] alex-brush-regular my-1" aria-hidden="true">y</p>
+        <p class="text-[clamp(2.5rem,12vw,6.9rem)] leading-[1.05] text-secondary alex-brush-regular mb-6">Daisy Lucero</p>
+        <p class="text-[16px] md:text-[26px] text-gold font-semibold tracking-[0.3em] uppercase mb-8">Domínguez Mendez</p>
 
         <!-- Botón ver invitación -->
         <button id="viewInvitation" class="btn-primary px-10 py-4 rounded-lg text-[20px]">
@@ -33,6 +37,21 @@ import DressCode from '../components/dressCode.astro';
         </button>
       </div>
     </div>
+
+    <!-- Control de música -->
+    <button id="musicToggle" type="button" aria-pressed="false" aria-label="Silenciar música"
+      class="btn-primary hidden fixed top-4 right-4 z-40 w-12 h-12 rounded-full p-0 shadow-lg">
+      <svg id="iconOn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5 6 9H3v6h3l5 4z" />
+        <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+        <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+      </svg>
+      <svg id="iconOff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5 6 9H3v6h3l5 4z" />
+        <path d="m22 9-6 6" />
+        <path d="m16 9 6 6" />
+      </svg>
+    </button>
       <style>
         #welcomeModal.fade-out {
           transition: opacity 0.7s ease;
@@ -71,7 +90,22 @@ import DressCode from '../components/dressCode.astro';
           if (music) {
             music.play().catch(err => console.log('Error al reproducir música:', err));
           }
+          musicToggle?.classList.remove('hidden');
         }
+
+        const musicToggle = document.getElementById('musicToggle');
+        const iconOn = document.getElementById('iconOn');
+        const iconOff = document.getElementById('iconOff');
+
+        musicToggle?.addEventListener('click', () => {
+          if (!(music instanceof HTMLAudioElement)) return;
+          const muted = !music.muted;
+          music.muted = muted;
+          musicToggle.setAttribute('aria-pressed', String(muted));
+          musicToggle.setAttribute('aria-label', muted ? 'Activar música' : 'Silenciar música');
+          iconOn?.classList.toggle('hidden', muted);
+          iconOff?.classList.toggle('hidden', !muted);
+        });
 
         viewInvitationBtn?.addEventListener('click', closeModalAndPlayMusic);
     </script>
